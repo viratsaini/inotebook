@@ -87,18 +87,22 @@ const NotesState = (props) => {
         "userid": "65a44ad80f387f672246bbfc",
         "title": title,
         "description": description,
-        "tag": "good",
+        "tag": tag,
         "date": "2024-01-23T07:26:41.647Z",
         "__v": 0
       }
 setnotes(notes.concat(note))
     }
+
    //delete notes
 const deleteNote=(id)=>{
-
+    console.log("Delete note with id: "+id)
+    const newNote=()=>notes.filter((note)=>{return note._id!==id})
+setnotes(newNote)
 }
    //edit notes
-const editNote=(id)=>{
+const editNote=(id,title,description,tag)=>{
+  
 
 }
   return (

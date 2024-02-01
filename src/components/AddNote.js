@@ -4,7 +4,7 @@ import contextValue from "../context/note/NotesContext";
 const AddNote = () => {
   const context = useContext(contextValue);
   const { addNote } = context;
-  const [note, setnote] = useState({title:"",tag:"default",description:""})
+  const [note, setnote] = useState({title:"",tag:"",description:""})
   const HandelClick = (e) => {
 e.preventDefault();
       addNote(note.title,note.description,note.tag);
@@ -44,11 +44,15 @@ e.preventDefault();
             />
           </div>
 
-          <div className="mb-3 form-check">
+          <div className="mb-3">
+            <label htmlFor="teg" className="form-label">
+              Teg
+            </label>
             <input
-              type="text"
-              className="form-check-input"
+              type="tag"
+              className="form-control"
               id="tag"
+              onChange={onChange}
               name="tag"
             />
           </div>
@@ -58,7 +62,7 @@ e.preventDefault();
             className="btn btn-primary"
             onClick={HandelClick}
           >
-            Submit
+            Add Note
           </button>
         </form>
       </div>
